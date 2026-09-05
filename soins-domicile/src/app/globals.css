@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+/* =============================================================================
+   Polices auto-hébergées — aucun appel à un CDN tiers (RGPD).
+   Déposer les .woff2 dans public/fonts/ — voir README.
+   Titres : Playfair Display · Corps : Poppins
+   ========================================================================== */
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/playfair-600.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/playfair-700.woff2") format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/poppins-400.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/poppins-500.woff2") format("woff2");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/poppins-600.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+
+/* =============================================================================
+   Jetons de conception — palette NestCare.
+   Valeurs échantillonnées au pixel sur le site en production, pas approchées.
+   Toute couleur absente de cette liste doit être validée avant usage.
+   ========================================================================== */
+@theme {
+  /* Vert de marque — boutons, liens, icônes, bandeaux pleine largeur */
+  --color-vert: #388a6c;
+  --color-vert-sombre: #2c6f56;   /* survol des boutons */
+  --color-vert-clair: #4ea183;    /* dégradés */
+  --color-vert-pale: #e7efec;     /* fonds d'icônes et d'encadrés */
+  --color-vert-bord: #cfe0d9;
+
+  /* Charbon — titres, pied de page */
+  --color-charbon: #232629;
+  --color-charbon-fonce: #16181a;
+
+  /* Fonds */
+  --color-fond: #fafafa;          /* fond de page et sections alternées */
+  --color-brume: #e7efec;         /* bandeaux secondaires, fil d'Ariane */
+  --color-bordure: #e9ebec;
+
+  /* Texte */
+  --color-encre: #232629;
+  --color-encre-2: #54595f;
+  --color-encre-3: #8b9096;
+
+  /* États */
+  --color-alerte: #b42318;
+  --color-alerte-pale: #fdeceb;
+  --color-alerte-bord: #f5cdc9;
+  --color-succes: #388a6c;
+
+  /* Typographie */
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --radius-carte: 16px;
+  --radius-champ: 10px;
+}
+
+@layer base {
+  html {
+    /* Corps de texte 17 px minimum : le public est âgé (CDC §8.2) */
+    font-size: 17px;
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  body {
+    background-color: var(--color-fond);
+    color: var(--color-encre);
+    font-family: var(--font-sans);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--color-charbon);
+    line-height: 1.25;
+    /* Interlettrage large des titres, comme sur le site en production */
+    letter-spacing: 0.02em;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+
+  /* Focus en charbon : reste visible sur fond blanc comme sur fond vert */
+  :focus-visible {
+    outline: 3px solid var(--color-charbon);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  ::selection {
+    background-color: var(--color-vert-pale);
+    color: var(--color-charbon);
+  }
+}
+
+@layer components {
+  .lien-evitement {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 1rem 1.5rem;
+    background: var(--color-charbon);
+    color: white;
+    font-weight: 600;
+  }
+  .lien-evitement:focus { left: 1rem; top: 1rem; }
+
+  /* Largeur de lecture : 65-75 caractères */
+  .mesure { max-width: 68ch; }
+}
