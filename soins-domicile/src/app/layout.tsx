@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { BarreAppel } from "@/components/BarreAppel";
 import { JsonLd, schemaOrganisation } from "@/lib/schema";
 import { site } from "@/data/site";
 import "./globals.css";
@@ -25,14 +24,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr-BE">
-      <body className="pb-[76px] lg:pb-0">
+      <body>
         <a href="#contenu" className="lien-evitement">
           Aller au contenu principal
         </a>
         <Header />
         <main id="contenu">{children}</main>
         <Footer />
-        <BarreAppel />
         <JsonLd donnees={schemaOrganisation()} />
       </body>
     </html>
