@@ -3,10 +3,7 @@ const nextConfig = {
   poweredByHeader: false,
   compress: true,
   images: {
-    // Photographies hébergées sur le CDN d'Unsplash — voir src/data/images.ts
-    remotePatterns: [
-      { protocol: "https", hostname: "images.unsplash.com" },
-    ],
+    // Photographies locales dans public/images/ — voir src/data/images.ts.
     // Qualité par défaut relevée (75 → 90) : le rendu net compte plus ici
     // que le poids, sur un site où la photo installe la confiance.
     qualities: [75, 90],

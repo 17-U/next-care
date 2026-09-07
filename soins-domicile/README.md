@@ -83,34 +83,34 @@ décalage de mise en page.
 
 ## Photographies
 
-Neuf photographies distinctes, centralisées dans `src/data/images.ts`. Chacune
-est hébergée sur le CDN d'Unsplash (`images.unsplash.com`), sous licence
-Unsplash : usage commercial libre, sans attribution obligatoire
-(https://unsplash.com/license). Aucun fichier local à gérer — `next/image` les
-sert directement depuis Unsplash, formats et tailles adaptés automatiquement.
+Neuf fichiers locaux dans `public/images/`, référencés depuis un point unique,
+`src/data/images.ts`.
 
-| Clé | Emplacement |
-|---|---|
-| `heroAccueil` | Bandeau de la page d'accueil |
-| `soinsPalliatifs` | Fiche service et carte d'accueil |
-| `toiletteHygiene` | Fiche service, section « au-delà des actes » |
-| `pansementsPlaies` | Fiche service |
-| `injectionsPerfusions` | Fiche service |
-| `prisesDeSang` | Fiche service, fond des pages communes |
-| `maladiesChroniques` | Fiche service |
-| `soinsPediatriques` | Section « au-delà des actes » |
-| `revalidation` | Page à propos |
+| Clé | Fichier | Emplacement |
+|---|---|---|
+| `heroAccueil` | `hero-accueil.webp` | Bandeau de la page d'accueil |
+| `soinsPalliatifs` | `soins-palliatifs.webp` | Fiche service et carte d'accueil |
+| `toiletteHygiene` | `toilette-hygiene.webp` | Fiche service, section « au-delà des actes » |
+| `pansementsPlaies` | `pansements-plaies.webp` | Fiche service |
+| `injectionsPerfusions` | `injections-perfusions.webp` | Fiche service |
+| `prisesDeSang` | `prises-de-sang.webp` | Fiche service, fond des pages communes |
+| `maladiesChroniques` | `maladies-chroniques.webp` | Fiche service |
+| `soinsPediatriques` | `soins-pediatriques.webp` | Section « au-delà des actes » |
+| `revalidation` | `revalidation.webp` | Page à propos |
 
-**Remplacer une photo** : changer l'URL correspondante dans `src/data/images.ts`
-uniquement — aucun autre fichier à toucher. `next.config.mjs` autorise le
-domaine `images.unsplash.com` via `images.remotePatterns` ; ajouter un autre
-domaine (ex. une autre banque libre de droits) suit le même principe.
+**Remplacer une photo** : déposer le nouveau fichier dans `public/images/` et
+mettre à jour le chemin correspondant dans `src/data/images.ts` — aucun autre
+fichier du projet à toucher.
 
-**Avant la mise en ligne** : ces photos de stock conviennent pour le
-développement et la présentation au client. Remplacer par de vraies
-photographies de l'équipe reste recommandé (§5.5 du cahier des charges) — la
-confiance générée par un vrai visage dépasse toujours celle d'une photo de
-banque, aussi bien choisie soit-elle.
+**Avant la mise en ligne — point de vigilance.** Vérifier la provenance et les
+droits de chaque photo avant publication commerciale. Une image trouvée sur le
+web (recherche Google Images, capture d'un autre site) n'est presque jamais
+libre de droits, même si le fichier est sur votre disque : les banques comme
+Getty Images ou Alamy poursuivent activement les usages non licenciés. Les
+sources sûres sont les banques explicitement libres de droits commerciaux
+(Unsplash, Pexels, avec vérification de la licence affichée sur chaque photo)
+ou une vraie séance photo de l'équipe — qui reste la meilleure option pour la
+confiance générée auprès des familles (§5.5 du cahier des charges).
 
 ---
 
