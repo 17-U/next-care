@@ -10,6 +10,7 @@ export function Header() {
   const [menuMobile, setMenuMobile] = useState(false);
   const [sousMenuOuvert, setSousMenuOuvert] = useState<string | null>(null);
   const chemin = usePathname();
+  const surAccueil = chemin === "/";
   const zoneNav = useRef<HTMLDivElement>(null);
 
   // Ferme le sous-menu au clic extérieur et à la touche Échap
@@ -31,11 +32,17 @@ export function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-bordure bg-white">
+    <header
+      className={
+        surAccueil
+          ? "absolute inset-x-0 top-0 z-50 bg-gradient-to-b from-charbon/60 via-charbon/20 to-transparent"
+          : "sticky top-0 z-50 bg-vert"
+      }
+    >
       <div className="mx-auto flex w-full max-w-[1280px] items-center gap-6 px-5 py-3 md:px-8">
         <Link href="/" className="flex items-center gap-3" aria-label={`${site.nom}, accueil`}>
           <Logo />
-          <span className="font-display text-[24px] font-bold tracking-[0.01em] text-charbon">
+          <span className="font-display text-[22px] font-bold tracking-[0.01em] text-white">
             {site.nom}
           </span>
         </Link>
@@ -54,8 +61,8 @@ export function Header() {
                       <Link
                         href={item.href}
                         aria-current={actif ? "page" : undefined}
-                        className={`inline-block py-2 text-[16px] ${
-                          actif ? "font-semibold text-charbon" : "text-encre hover:text-vert"
+                        className={`inline-block py-2 text-[15.5px] ${
+                          actif ? "font-semibold text-white underline underline-offset-8" : "text-white/90 hover:text-white"
                         }`}
                       >
                         {item.libelle}
@@ -78,8 +85,8 @@ export function Header() {
                       aria-expanded={ouvert}
                       aria-haspopup="true"
                       onClick={() => setSousMenuOuvert(ouvert ? null : item.libelle)}
-                      className={`inline-flex items-center gap-1.5 py-2 text-[16px] ${
-                        actif ? "font-semibold text-charbon" : "text-encre hover:text-vert"
+                      className={`inline-flex items-center gap-1.5 py-2 text-[15.5px] ${
+                        actif ? "font-semibold text-white underline underline-offset-8" : "text-white/90 hover:text-white"
                       }`}
                     >
                       {item.libelle}
@@ -131,8 +138,15 @@ export function Header() {
           </nav>
         </div>
 
-        <div className="ml-auto hidden lg:ml-0 lg:block">
-          <Bouton href="/contact">Prendre RDV</Bouton>
+        <div className="ml-auto hidden items-center gap-2 lg:ml-0 lg:flex">
+          <a
+            href={`tel:${site.telephone}`}
+            data-conversion="clic-telephone"
+            className="flex items-center gap-2 text-[15.5px] font-semibold text-white hover:underline"
+          >
+            <IconeTelephone className="h-4 w-4" />
+            {site.telephoneAffiche}
+          </a>
         </div>
 
         {/* ---------------------------------------- bouton menu mobile */}
@@ -141,14 +155,14 @@ export function Header() {
           onClick={() => setMenuMobile((v) => !v)}
           aria-expanded={menuMobile}
           aria-controls="menu-mobile"
-          className="ml-auto flex h-12 w-12 items-center justify-center rounded-[10px] border border-bordure lg:hidden"
+          className="ml-auto flex h-11 w-11 items-center justify-center rounded-[10px] border border-white/40 lg:hidden"
         >
           <span className="sr-only">{menuMobile ? "Fermer le menu" : "Ouvrir le menu"}</span>
           <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" aria-hidden="true">
             {menuMobile ? (
-              <path d="M6 6l12 12M18 6 6 18" stroke="#232629" strokeWidth="2" strokeLinecap="round" />
+              <path d="M6 6l12 12M18 6 6 18" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
             ) : (
-              <path d="M4 7h16M4 12h16M4 17h16" stroke="#232629" strokeWidth="2" strokeLinecap="round" />
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
             )}
           </svg>
         </button>
@@ -209,16 +223,16 @@ export function Header() {
 }
 
 /** Maison stylisée portant une croix de soin. */
-function Logo() {
+function Logo({ couleur = "#FFFFFF" }: { couleur?: string }) {
   return (
-    <svg viewBox="0 0 40 40" className="h-11 w-11" aria-hidden="true" fill="none">
+    <svg viewBox="0 0 40 40" className="h-10 w-10" aria-hidden="true" fill="none">
       <path
         d="M6 18.5 20 7l14 11.5V32a2.5 2.5 0 0 1-2.5 2.5h-23A2.5 2.5 0 0 1 6 32V18.5Z"
-        stroke="#388A6C"
+        stroke={couleur}
         strokeWidth="2.4"
         strokeLinejoin="round"
       />
-      <path d="M20 17.5v9M15.5 22h9" stroke="#388A6C" strokeWidth="2.4" strokeLinecap="round" />
+      <path d="M20 17.5v9M15.5 22h9" stroke={couleur} strokeWidth="2.4" strokeLinecap="round" />
     </svg>
   );
 }

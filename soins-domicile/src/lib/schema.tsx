@@ -10,7 +10,7 @@ export function schemaOrganisation() {
     "@type": ["MedicalBusiness", "HomeAndConstructionBusiness"],
     "@id": `${site.url}/#organisation`,
     name: site.nom,
-    description: `${site.baseline} à Bruxelles et en périphérie est, 7 jours sur 7.`,
+    description: `${site.baseline} à Manage et dans les communes voisines, 7 jours sur 7.`,
     url: site.url,
     telephone: site.telephoneAffiche,
     email: site.email,

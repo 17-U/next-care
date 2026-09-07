@@ -6,9 +6,9 @@ import { VerificateurZone } from "@/components/VerificateurZone";
 import { communes } from "@/data/communes";
 
 export const metadata: Metadata = {
-  title: "Zones desservies à Bruxelles et en périphérie",
+  title: "Zones desservies à Manage et dans le Hainaut",
   description:
-    "Vérifiez si votre commune est couverte : Schaerbeek, Etterbeek, Evere, Woluwe-Saint-Lambert, Auderghem, Kraainem. Intervention sous 24 heures.",
+    "Vérifiez si votre commune est couverte : Manage, Seneffe, Morlanwelz, La Louvière. Intervention sous 24 heures.",
   alternates: { canonical: "/zones-desservies" },
 };
 
@@ -24,7 +24,7 @@ export default function PageZones() {
       <Section>
         <h1 className="font-display text-[34px] md:text-[40px]">Où nous intervenons</h1>
         <p className="mesure mt-4 text-[17px] text-encre-2">
-          Bruxelles et périphérie est. Entrez votre code postal : vous saurez immédiatement si votre
+          Manage et les communes voisines. Entrez votre code postal : vous saurez immédiatement si votre
           adresse entre dans nos tournées et sous quel délai.
         </p>
 

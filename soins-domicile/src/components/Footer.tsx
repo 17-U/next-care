@@ -10,9 +10,7 @@ export function Footer() {
       <div className="mx-auto grid w-full max-w-[1136px] gap-10 px-5 py-14 md:grid-cols-4 md:px-8">
         <div>
           <p className="flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-vert font-display text-[20px] font-bold text-white">
-              N
-            </span>
+            <LogoPied />
             <span className="font-display text-[24px] font-bold">{site.nom}</span>
           </p>
           <p className="mt-5 text-[15px] text-[#BFC3C6]">
@@ -28,18 +26,42 @@ export function Footer() {
           titre="Nos services"
           liens={services.map((s) => ({ href: `/services/${s.slug}`, libelle: s.nomCourt }))}
         />
+
+        <div>
+          <p className="font-semibold">Contact</p>
+          <ul className="mt-4 space-y-3 text-[15px] text-[#A6ABAF]">
+            <li>
+              {site.adresse.rue}
+              <br />
+              {site.adresse.codePostal} {site.adresse.ville}
+            </li>
+            <li>
+              <a href={`tel:${site.telephone}`} className="hover:text-white hover:underline">
+                {site.telephoneAffiche}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${site.email}`} className="hover:text-white hover:underline">
+                {site.email}
+              </a>
+            </li>
+            <li>{site.horaires}</li>
+          </ul>
+          <p className="mt-4 text-[13.5px] text-[#8B9096]">
+            Nos infirmières se déplacent à {communes[0]?.nom} et dans les communes voisines.
+          </p>
+        </div>
+
         <ColonneLiens
-          titre="Zones desservies"
-          liens={communes.map((c) => ({ href: `/${c.slug}`, libelle: c.nom }))}
-        />
-        <ColonneLiens
-          titre="Guides & ressources"
+          titre="Ressources"
           liens={[
+            { href: "/zones-desservies", libelle: "Zones desservies" },
             { href: "/tarifs", libelle: "Tarifs et INAMI" },
             { href: "/simulateur-katz", libelle: "Échelle de Katz" },
-            { href: "/a-propos", libelle: "À propos" },
-            { href: "/contact", libelle: "Demander une visite" },
+            { href: "/blog", libelle: "Blog" },
+            { href: "/promo", libelle: "Offre découverte" },
             { href: "/mentions-legales", libelle: "Mentions légales" },
+            { href: "/conditions-generales", libelle: "Conditions générales" },
             { href: "/confidentialite", libelle: "Confidentialité" },
           ]}
         />
@@ -54,6 +76,21 @@ export function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+/** Même icône que l'en-tête (maison + croix de soin), en blanc pour le fond charbon. */
+function LogoPied() {
+  return (
+    <svg viewBox="0 0 40 40" className="h-11 w-11" aria-hidden="true" fill="none">
+      <path
+        d="M6 18.5 20 7l14 11.5V32a2.5 2.5 0 0 1-2.5 2.5h-23A2.5 2.5 0 0 1 6 32V18.5Z"
+        stroke="#FFFFFF"
+        strokeWidth="2.4"
+        strokeLinejoin="round"
+      />
+      <path d="M20 17.5v9M15.5 22h9" stroke="#FFFFFF" strokeWidth="2.4" strokeLinecap="round" />
+    </svg>
   );
 }
 

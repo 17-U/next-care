@@ -14,6 +14,7 @@ import {
   type Demande,
 } from "@/lib/demande";
 import { Bouton, Encadre, IconeCoche, IconeTelephone } from "./ui";
+import { Recaptcha } from "./Recaptcha";
 
 /**
  * BF-10 — formulaire en trois étapes.
@@ -47,7 +48,7 @@ export function FormulaireDemande() {
   function champsDeLEtape(n: number): (keyof Demande)[] {
     if (n === 0) return ["pourQui", "situation"];
     if (n === 1) return ["frequence", "commune", "codePostal", "delai"];
-    return ["nom", "telephone", "email", "consentement"];
+    return ["nom", "telephone", "email", "consentement", "conditionsGenerales"];
   }
 
   function suivant() {
@@ -355,6 +356,37 @@ export function FormulaireDemande() {
               </label>
               {erreurs.consentement && (
                 <p className="mt-3 text-[15px] font-semibold text-urgence">{erreurs.consentement}</p>
+              )}
+            </div>
+
+            {/* Case distincte demandée par le client, en plus du consentement RGPD ci-dessus */}
+            <div className="mt-4">
+              <label className="flex gap-4">
+                <input
+                  type="checkbox"
+                  checked={donnees.conditionsGenerales ?? false}
+                  onChange={(e) => maj("conditionsGenerales", e.target.checked)}
+                  className="mt-1 h-6 w-6 shrink-0 accent-[#0B6A63]"
+                />
+                <span className="text-[15px] text-encre-2">
+                  J&apos;ai lu et j&apos;accepte les{" "}
+                  <Link href="/conditions-generales" className="underline">
+                    conditions générales d&apos;utilisation
+                  </Link>
+                  .
+                </span>
+              </label>
+              {erreurs.conditionsGenerales && (
+                <p className="mt-2 text-[15px] font-semibold text-urgence">
+                  {erreurs.conditionsGenerales}
+                </p>
+              )}
+            </div>
+
+            <div className="mt-6">
+              <Recaptcha onChange={(token) => maj("recaptchaToken", token ?? "")} />
+              {erreurs.recaptcha && (
+                <p className="mt-2 text-[15px] font-semibold text-urgence">{erreurs.recaptcha}</p>
               )}
             </div>
           </>

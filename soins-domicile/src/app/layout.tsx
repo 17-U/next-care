@@ -9,11 +9,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.nom} — infirmier à domicile à Bruxelles, 7j/7`,
+    default: `${site.nom} — infirmier à domicile à Manage, 7j/7`,
     template: `%s | ${site.nom}`,
   },
   description:
-    "Soins infirmiers à domicile à Bruxelles et en périphérie est : soins palliatifs, aide à la toilette, pansements, suivi du diabète. Conventionnés INAMI, tiers payant, 7 jours sur 7.",
+    "Soins infirmiers à domicile à Manage, Seneffe, Morlanwelz et La Louvière : soins palliatifs, aide à la toilette, pansements, suivi du diabète. Conventionnés INAMI, 7 jours sur 7.",
   openGraph: {
     type: "website",
     locale: "fr_BE",

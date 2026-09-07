@@ -86,7 +86,7 @@ export default function PageConfidentialite() {
             Vous disposez d&apos;un droit d&apos;accès, de rectification, d&apos;effacement, de
             limitation et d&apos;opposition. Écrivez à {site.email}. Vous pouvez également
             introduire une réclamation auprès de l&apos;Autorité de protection des données (APD),
-            rue de la Presse 35, 1000 Bruxelles.
+            rue de la Presse 35, 1000 Bruxelles (compétence nationale).
           </p>
         </div>
       </Section>

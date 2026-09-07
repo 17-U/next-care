@@ -53,6 +53,24 @@ export async function POST(requete: Request) {
     return NextResponse.json({ erreurs }, { status: 422 });
   }
 
+  // Vérification du reCAPTCHA côté serveur — le jeton envoyé par le
+  // navigateur doit être revalidé auprès de Google, jamais fait confiance
+  // aveuglément côté client.
+  const cleSecrete = process.env.RECAPTCHA_SECRET_KEY;
+  if (cleSecrete && corps.recaptchaToken) {
+    const verif = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `secret=${cleSecrete}&response=${corps.recaptchaToken}`,
+    }).then((r) => r.json()).catch(() => ({ success: false }));
+    if (!verif.success) {
+      return NextResponse.json(
+        { erreurs: { recaptcha: "Échec de la vérification reCAPTCHA, réessayez." } },
+        { status: 422 },
+      );
+    }
+  }
+
   const urgente = estUrgente(corps);
 
   // ---------------------------------------------------------------------

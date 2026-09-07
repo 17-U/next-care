@@ -38,11 +38,12 @@
    ========================================================================== */
 @theme {
   /* Vert de marque — boutons, liens, icônes, bandeaux pleine largeur */
-  --color-vert: #388a6c;
-  --color-vert-sombre: #2c6f56;   /* survol des boutons */
-  --color-vert-clair: #4ea183;    /* dégradés */
-  --color-vert-pale: #e7efec;     /* fonds d'icônes et d'encadrés */
-  --color-vert-bord: #cfe0d9;
+  /* Teal — échantillonné au pixel sur le brouillon Site123 du client */
+  --color-vert: #0b6a63;
+  --color-vert-sombre: #084f4a;    /* survol des boutons */
+  --color-vert-clair: #158f85;     /* dégradés */
+  --color-vert-pale: #e3efee;      /* fonds d'icônes et d'encadrés */
+  --color-vert-bord: #c3ded9;
 
   /* Charbon — titres, pied de page */
   --color-charbon: #232629;

@@ -5,6 +5,7 @@ import { Faq } from "@/components/Faq";
 import { CarteService } from "@/components/CarteService";
 import { EnteteSection } from "@/components/EnteteSection";
 import { faqGenerale } from "@/data/faq";
+import { articles } from "@/data/articles";
 import { services } from "@/data/services";
 import { communes } from "@/data/communes";
 import { site } from "@/data/site";
@@ -14,37 +15,36 @@ export default function Accueil() {
   return (
     <>
       {/* ------------------------------------------------------------ HERO */}
-      {/* Photographie en fond plein cadre, voile sombre pour garantir le contraste
-          du texte (AA) quelle que soit la zone de l'image. */}
-      <section className="relative isolate flex min-h-[560px] items-center overflow-hidden md:min-h-[640px]">
-        <Image
-          src="/images/hero-accueil.webp"
-          alt=""
-          aria-hidden="true"
-          fill
-          priority
-          sizes="100vw"
-          className="-z-20 object-cover object-[70%_center]"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-gradient-to-r from-charbon/92 via-charbon/75 to-charbon/25"
-        />
+      {/* Photo pleine largeur + carte centrée en débord, sur le même principe
+          structurel que la maquette du client, avec une identité graphique
+          propre (typographie, couleurs, hiérarchie) plutôt qu'une copie. */}
+      <section className="relative">
+        <div className="relative h-[360px] w-full overflow-hidden md:h-[440px]">
+          <Image
+            src="/images/hero-accueil.webp"
+            alt="Une infirmière échange avec un patient âgé à son domicile"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[70%_center]"
+          />
+          <div aria-hidden="true" className="absolute inset-0 bg-charbon/25" />
+        </div>
 
-        <div className="mx-auto w-full max-w-[1280px] px-5 py-16 md:px-8 md:py-24">
-          <div className="max-w-[640px]">
-            <p className="text-[14px] font-semibold uppercase tracking-[0.12em] text-[#9FD8C1]">
+        <div className="mx-auto w-full max-w-[1280px] px-5 md:px-8">
+          <div className="relative z-10 -mt-24 rounded-[6px] bg-white px-7 py-10 text-center shadow-[0_20px_50px_rgba(35,38,41,0.18)] md:-mt-28 md:px-16 md:py-14">
+            <p className="text-[14px] font-semibold uppercase tracking-[0.12em] text-vert">
               Soins infirmiers à domicile
             </p>
-            <h1 className="mt-4 font-display text-[38px] leading-[1.15] tracking-[0.02em] text-white md:text-[54px]">
-              Des soins infirmiers professionnels, chez vous, 7j/7
+            <h1 className="mx-auto mt-3 max-w-[720px] font-display text-[32px] leading-[1.2] tracking-[0.02em] md:text-[44px]">
+              {site.nom}
             </h1>
-            <p className="mt-6 text-[18px] leading-relaxed text-[#D7DADC]">
-              Soins palliatifs, aide à la toilette, pansements et suivi des maladies chroniques à
-              Bruxelles et en périphérie. Conventionnés INAMI : le tiers payant est appliqué, vous
-              ne réglez que le ticket modérateur.
+            <div className="mx-auto mt-4 h-[3px] w-16 bg-vert" aria-hidden="true" />
+            <p className="mx-auto mt-5 max-w-[560px] text-[18px] leading-relaxed text-encre-2">
+              Des soins personnalisés, là où vous en avez le plus besoin. Conventionnés INAMI,
+              disponibles {site.horaires.toLowerCase()}.
             </p>
-            <div className="mt-9 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Bouton href="/contact">Prendre RDV</Bouton>
               <BoutonAppel
                 telephone={site.telephone}
@@ -52,14 +52,14 @@ export default function Accueil() {
                 variante="contour"
               />
             </div>
-            <ul className="mt-9 flex flex-wrap gap-x-8 gap-y-3">
+            <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
               {[
                 `Rappel sous ${site.delaiRappel}`,
                 "Sans engagement",
                 "Évaluation à domicile gratuite",
               ].map((t) => (
-                <li key={t} className="flex items-center gap-2 text-[15px] text-[#D7DADC]">
-                  <IconeCoche className="h-5 w-5 text-[#9FD8C1]" />
+                <li key={t} className="flex items-center gap-2 text-[14.5px] text-encre-2">
+                  <IconeCoche className="h-5 w-5 text-vert" />
                   {t}
                 </li>
               ))}
@@ -68,14 +68,16 @@ export default function Accueil() {
         </div>
       </section>
 
-      {/* ----------------------------------------------------- RÉASSURANCE */}
+      <div className="h-10 md:h-14" aria-hidden="true" />
+
+
       <div className="border-y border-bordure bg-brume">
         <div className="mx-auto grid w-full max-w-[1136px] gap-6 px-5 py-8 md:grid-cols-4 md:px-8">
           {[
             ["Infirmiers diplômés", "et conventionnés INAMI"],
             ["7j/7, week-ends", "et jours fériés inclus"],
             ["Plan de soins", "établi avec votre médecin"],
-            ["Bruxelles", "et périphérie est"],
+            ["Manage", "et environs, en Hainaut"],
           ].map(([titre, detail]) => (
             <div key={titre} className="flex gap-3">
               <IconeCoche className="mt-1 h-5 w-5 shrink-0 text-vert" />
@@ -99,7 +101,7 @@ export default function Accueil() {
           Conventionnés INAMI, nos infirmiers assurent la continuité des soins à domicile 7j/7.
         </EnteteSection>
 
-        <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <CarteService key={service.slug} service={service} />
           ))}
@@ -223,7 +225,7 @@ export default function Accueil() {
           <div>
             <h2 className="font-display text-[30px] md:text-[34px]">Où nous intervenons</h2>
             <p className="mesure mt-3 text-[17px] text-encre-2">
-              Bruxelles et périphérie est. Chaque commune a sa page : quartiers couverts, délai
+              Manage et les communes voisines. Chaque commune a sa page : quartiers couverts, délai
               d&apos;intervention et soins les plus demandés sur place.
             </p>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -246,6 +248,34 @@ export default function Accueil() {
               ou vérifions si votre adresse entre dans une tournée existante.
             </Encadre>
           </div>
+        </div>
+      </Section>
+
+      {/* --------------------------------------------------------- ACTUALITÉS */}
+      <Section fond="brume">
+        <EnteteSection surTitre="Actualités" titre="Restez informés">
+          Vous trouverez ici toutes nos nouveautés : fermetures exceptionnelles, nouveaux services
+          ou changements d&apos;organisation. N&apos;hésitez pas à y revenir régulièrement.
+        </EnteteSection>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {articles.slice(0, 3).map((a) => (
+            <Link
+              key={a.slug}
+              href={`/blog/${a.slug}`}
+              className="flex flex-col rounded-[6px] border border-bordure bg-white p-6"
+            >
+              <Etiquette>{a.categorie}</Etiquette>
+              <h3 className="mt-4 font-display text-[19px] leading-snug">{a.titre}</h3>
+              <p className="mt-3 flex-1 text-[15px] text-encre-2">{a.chapo}</p>
+              <span className="mt-4 font-semibold text-vert">Lire l&apos;article →</span>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <Bouton href="/blog" variante="contour">
+            Toutes nos actualités
+          </Bouton>
         </div>
       </Section>
 

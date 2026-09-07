@@ -127,7 +127,7 @@ export const services: Service[] = [
     nom: "Injections & perfusions",
     nomCourt: "Injections & perfusions",
     resume:
-      "Injections intramusculaires, sous-cutanées et intraveineuses, perfusions et accompagnement de chimiothérapie orale.",
+      "Injections intramusculaires, sous-cutanées et intraveineuses, perfusions, vaccination et accompagnement de chimiothérapie orale.",
     intro:
       "Les injections régulières — anticoagulants, insuline, traitements de fond — n'obligent pas à se déplacer. Nous passons à heure fixe, tous les jours si nécessaire.",
     actes: [

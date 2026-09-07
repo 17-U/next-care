@@ -3,33 +3,35 @@ export const site = {
   nom: "NestCare",
   baseline: "Soins infirmiers à domicile",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://nestcare.be",
-  telephone: process.env.NEXT_PUBLIC_PHONE ?? "0470810649",
-  telephoneAffiche: process.env.NEXT_PUBLIC_PHONE_DISPLAY ?? "0470 81 06 49",
-  email: "info@nestcare.be",
+  telephone: process.env.NEXT_PUBLIC_PHONE ?? "0495490310",
+  telephoneAffiche: process.env.NEXT_PUBLIC_PHONE_DISPLAY ?? "0495 49 03 10",
+  email: "contact@nestcare.be",
   adresse: {
-    rue: "Boulevard Bischoffsheim 39/4",
-    codePostal: "1000",
-    ville: "Bruxelles",
-    region: "Région de Bruxelles-Capitale",
+    rue: "Rue de Bois d'Haine 5",
+    codePostal: "7170",
+    ville: "Manage",
+    region: "Hainaut",
     pays: "BE",
   },
   /** Mentions légales obligatoires — CDC §9.1 */
   legal: {
     formeJuridique: "SRL",
-    bce: "0XXX.XXX.XXX",
+    bce: "0804.683.393",
     inami: "4-XXXXX-XX-XXX",
     assuranceRc: "Assureur à compléter — police n° XXXXXX",
     tva: "Prestations exonérées de TVA (art. 44 CTVA)",
   },
-  horaires: "7j/7",
+  horaires: "Lundi à dimanche, de 7h00 à 20h30",
   delaiRappel: "2 heures ouvrées",
-  geo: { latitude: 50.8503, longitude: 4.3667 },
+  /** Manage, Hainaut */
+  geo: { latitude: 50.5006, longitude: 4.2213 },
 } as const;
 
 /**
- * Navigation principale. « Services » ouvre un sous-menu listant les six
- * prestations ; les pages Zones desservies et Tarifs restent accessibles
- * depuis le pied de page et le maillage interne, comme en production.
+ * Navigation principale — quatre entrées, comme la référence du client.
+ * Zones desservies, Tarifs, Échelle de Katz, Blog et Promo restent de vraies
+ * pages, reliées depuis le pied de page et le maillage interne : elles
+ * gardent leur valeur SEO sans alourdir la barre du haut.
  */
 export type LienNav = {
   libelle: string;
@@ -39,20 +41,19 @@ export type LienNav = {
 
 export const navigation: LienNav[] = [
   { libelle: "Accueil", href: "/" },
-  { libelle: "A propos", href: "/a-propos" },
   {
-    libelle: "Services",
+    libelle: "Nos Services",
     href: "/services",
     sousMenu: [
-      { libelle: "Pansements à domicile", href: "/services/pansements-plaies" },
-      { libelle: "Injections & perfusions", href: "/services/injections-perfusions" },
-      { libelle: "Prise de sang à domicile", href: "/services/prises-de-sang-soins-techniques" },
-      { libelle: "Aide à la toilette", href: "/services/aide-toilette-hygiene" },
       { libelle: "Soins palliatifs", href: "/services/soins-palliatifs" },
+      { libelle: "Aide à la toilette", href: "/services/aide-toilette-hygiene" },
+      { libelle: "Plaie et pansement", href: "/services/pansements-plaies" },
+      { libelle: "Injections & vaccination", href: "/services/injections-perfusions" },
+      { libelle: "Prise de sang", href: "/services/prises-de-sang-soins-techniques" },
       { libelle: "Soins diabétiques", href: "/services/diabete-maladies-chroniques" },
       { libelle: "Tous nos services", href: "/services" },
     ],
   },
-  { libelle: "Blog", href: "/blog" },
+  { libelle: "À propos", href: "/a-propos" },
   { libelle: "Contact", href: "/contact" },
 ];

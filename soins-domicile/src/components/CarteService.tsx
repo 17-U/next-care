@@ -1,34 +1,30 @@
 import Image from "next/image";
 import Link from "next/link";
-import { PastilleService } from "./ui";
 import type { Service } from "@/data/services";
 
-/** Carte service : photo, pastille ronde en débord, titre et résumé. */
+/**
+ * Vignette de service : photo ronde, nom centré, courte description centrée.
+ * Aucune bordure, aucun fond de carte — reprend fidèlement la présentation
+ * du brouillon de référence du client (photos circulaires, texte sobre).
+ */
 export function CarteService({ service, priorite = false }: { service: Service; priorite?: boolean }) {
   return (
-    <article className="flex flex-col overflow-hidden rounded-[6px] border border-bordure bg-white">
-      <div className="relative aspect-[16/10]">
+    <Link href={`/services/${service.slug}`} className="group flex flex-col items-center text-center">
+      <div className="relative h-28 w-28 overflow-hidden rounded-full md:h-32 md:w-32">
         <Image
           src={service.image}
           alt={service.alt}
           fill
           priority={priorite}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover"
+          sizes="128px"
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
-        <PastilleService icone={service.icone} className="absolute bottom-0 left-6 translate-y-1/2" />
       </div>
-
-      <div className="flex flex-1 flex-col p-6 pt-12">
-        <h3 className="font-display text-[23px] leading-snug">{service.nom}</h3>
-        <p className="mt-3 flex-1 text-[16px] text-encre-2">{service.resume}</p>
-        <Link
-          href={`/services/${service.slug}`}
-          className="mt-5 inline-block font-semibold text-vert underline decoration-2 underline-offset-4"
-        >
-          Voir le détail de ce service
-        </Link>
-      </div>
-    </article>
+      <h3 className="mt-5 font-display text-[19px] leading-snug">{service.nom}</h3>
+      <p className="mt-2 max-w-[240px] text-[14.5px] text-encre-2">{service.resume}</p>
+      <span className="mt-3 text-[14px] font-semibold text-vert opacity-0 transition-opacity group-hover:opacity-100">
+        Voir le détail →
+      </span>
+    </Link>
   );
 }

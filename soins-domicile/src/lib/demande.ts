@@ -36,7 +36,11 @@ export type Demande = {
   email?: string;
   precisions?: string;
   consentement: boolean;
-  /** Anti-spam sans CAPTCHA — BF-14 */
+  /** Case distincte « J'ai lu et j'accepte les conditions générales d'utilisation » */
+  conditionsGenerales: boolean;
+  /** Jeton renvoyé par reCAPTCHA — vérifié côté serveur */
+  recaptchaToken?: string;
+  /** Anti-spam complémentaire, sans CAPTCHA — BF-14 */
   siteWeb?: string;
   horodatage?: number;
 };
@@ -64,6 +68,10 @@ export function validerDemande(d: Partial<Demande>) {
     erreurs.email = "Cette adresse email n'est pas valide.";
   if (!d.consentement)
     erreurs.consentement = "Votre accord est nécessaire pour que nous puissions vous rappeler.";
+  if (!d.conditionsGenerales)
+    erreurs.conditionsGenerales = "Merci d'accepter les conditions générales d'utilisation.";
+  if (process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && !d.recaptchaToken)
+    erreurs.recaptcha = "Merci de valider le reCAPTCHA avant d'envoyer.";
 
   return erreurs;
 }

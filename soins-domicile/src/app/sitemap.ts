@@ -6,7 +6,7 @@ import { articles } from "@/data/articles";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const maintenant = new Date();
-  const fixes = ["", "/services", "/zones-desservies", "/tarifs", "/simulateur-katz", "/a-propos", "/blog", "/contact"];
+  const fixes = ["", "/services", "/zones-desservies", "/tarifs", "/simulateur-katz", "/promo", "/conditions-generales", "/a-propos", "/blog", "/contact"];
 
   return [
     ...fixes.map((chemin) => ({
