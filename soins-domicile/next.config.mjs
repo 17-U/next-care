@@ -2,6 +2,12 @@
 const nextConfig = {
   poweredByHeader: false,
   compress: true,
+  images: {
+    // Photographies hébergées sur le CDN d'Unsplash — voir src/data/images.ts
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+    ],
+  },
   async headers() {
     return [
       {

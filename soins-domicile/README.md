@@ -83,24 +83,34 @@ décalage de mise en page.
 
 ## Photographies
 
-Neuf photographies sont intégrées dans `public/images/`, chacune avec un texte
-alternatif descriptif :
+Neuf photographies distinctes, centralisées dans `src/data/images.ts`. Chacune
+est hébergée sur le CDN d'Unsplash (`images.unsplash.com`), sous licence
+Unsplash : usage commercial libre, sans attribution obligatoire
+(https://unsplash.com/license). Aucun fichier local à gérer — `next/image` les
+sert directement depuis Unsplash, formats et tailles adaptés automatiquement.
 
-| Fichier | Emplacement |
+| Clé | Emplacement |
 |---|---|
-| `hero-accueil.webp` | Bandeau de la page d'accueil |
-| `soins-palliatifs.webp` | Fiche service et carte d'accueil |
-| `toilette-hygiene.webp` | Fiche service, section « au-delà des actes » |
-| `pansements-plaies.webp` | Fiche service |
-| `injections-perfusions.webp` | Fiche service |
-| `prises-de-sang.webp` | Fiche service, fond des pages communes |
-| `maladies-chroniques.webp` | Fiche service |
-| `soins-pediatriques.webp` | Section « au-delà des actes » |
-| `revalidation.webp` | Page à propos |
+| `heroAccueil` | Bandeau de la page d'accueil |
+| `soinsPalliatifs` | Fiche service et carte d'accueil |
+| `toiletteHygiene` | Fiche service, section « au-delà des actes » |
+| `pansementsPlaies` | Fiche service |
+| `injectionsPerfusions` | Fiche service |
+| `prisesDeSang` | Fiche service, fond des pages communes |
+| `maladiesChroniques` | Fiche service |
+| `soinsPediatriques` | Section « au-delà des actes » |
+| `revalidation` | Page à propos |
 
-Servies via `next/image` : formats et tailles adaptés automatiquement, chargement
-différé hors du premier écran, dimensions réservées pour éviter tout décalage de
-mise en page.
+**Remplacer une photo** : changer l'URL correspondante dans `src/data/images.ts`
+uniquement — aucun autre fichier à toucher. `next.config.mjs` autorise le
+domaine `images.unsplash.com` via `images.remotePatterns` ; ajouter un autre
+domaine (ex. une autre banque libre de droits) suit le même principe.
+
+**Avant la mise en ligne** : ces photos de stock conviennent pour le
+développement et la présentation au client. Remplacer par de vraies
+photographies de l'équipe reste recommandé (§5.5 du cahier des charges) — la
+confiance générée par un vrai visage dépasse toujours celle d'une photo de
+banque, aussi bien choisie soit-elle.
 
 ---
 

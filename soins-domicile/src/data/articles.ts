@@ -1,3 +1,5 @@
+import { images } from "./images";
+
 export type Article = {
   slug: string;
   titre: string;
@@ -21,7 +23,7 @@ export const articles: Article[] = [
       "Six critères déterminent le forfait INAMI dont dépend la prise en charge des soins à domicile. Voici comment ils sont cotés et ce que cela change concrètement pour votre famille.",
     date: "2026-01-14",
     minutes: 8,
-    image: "/images/maladies-chroniques.webp",
+    image: images.maladiesChroniques,
     alt: "Une infirmière relève les paramètres vitaux d'une patiente âgée à domicile",
     relecture: "Relu par une infirmière en chef",
     sections: [
@@ -64,7 +66,7 @@ export const articles: Article[] = [
       "Un retour mal préparé se termine souvent par une réhospitalisation. Voici ce qu'il faut avoir réglé avant que l'ambulance ne dépose votre proche devant chez lui.",
     date: "2026-02-03",
     minutes: 6,
-    image: "/images/prises-de-sang.webp",
+    image: images.prisesDeSang,
     alt: "Une infirmière note les observations de sa patiente sur sa tablette",
     relecture: "Relu par une infirmière en chef",
     sections: [
@@ -104,7 +106,7 @@ export const articles: Article[] = [
       "La question du coût est le premier frein au maintien à domicile. Elle repose pourtant sur un mécanisme simple, que peu de familles connaissent.",
     date: "2026-03-11",
     minutes: 5,
-    image: "/images/injections-perfusions.webp",
+    image: images.injectionsPerfusions,
     alt: "Une infirmière pose une perfusion au bras d'un patient dans son salon",
     relecture: "Relu par une infirmière en chef",
     sections: [

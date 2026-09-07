@@ -4,6 +4,7 @@ import { Carte, ListeCochee, Section } from "@/components/ui";
 import { FilAriane } from "@/components/FilAriane";
 import { communes } from "@/data/communes";
 import { site } from "@/data/site";
+import { images } from "@/data/images";
 
 export const metadata: Metadata = {
   title: "À propos de notre équipe",
@@ -53,7 +54,7 @@ export default function PageAPropos() {
           </div>
           <div className="relative aspect-[4/3] overflow-hidden rounded-[16px]">
             <Image
-              src="/images/revalidation.webp"
+              src={images.revalidation}
               alt="Une soignante accompagne une patiente âgée lors d'exercices de mobilité"
               fill
               priority
@@ -69,7 +70,7 @@ export default function PageAPropos() {
             même principe structurel que la référence du client. */}
         <div className="relative aspect-[16/9] overflow-hidden rounded-[6px] md:aspect-[21/9]">
           <Image
-            src="/images/soins-palliatifs.webp"
+            src={images.soinsPalliatifs}
             alt="Une infirmière échange avec un patient âgé, assis dans son salon"
             fill
             sizes="100vw"

@@ -9,6 +9,7 @@ import { articles } from "@/data/articles";
 import { services } from "@/data/services";
 import { communes } from "@/data/communes";
 import { site } from "@/data/site";
+import { images } from "@/data/images";
 import { JsonLd, schemaFaq } from "@/lib/schema";
 
 export default function Accueil() {
@@ -21,7 +22,7 @@ export default function Accueil() {
       <section className="relative">
         <div className="relative h-[360px] w-full overflow-hidden md:h-[440px]">
           <Image
-            src="/images/hero-accueil.webp"
+            src={images.heroAccueil}
             alt="Une infirmière échange avec un patient âgé à son domicile"
             fill
             priority
@@ -146,7 +147,7 @@ export default function Accueil() {
           <div className="relative">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[16px]">
               <Image
-                src="/images/toilette-hygiene.webp"
+                src={images.toiletteHygiene}
                 alt="Une infirmière échange avec une patiente âgée assise dans son fauteuil"
                 fill
                 sizes="(max-width: 1024px) 100vw, 45vw"
@@ -155,7 +156,7 @@ export default function Accueil() {
             </div>
             <div className="relative -mt-16 ml-auto hidden aspect-[4/3] w-1/2 overflow-hidden rounded-[16px] border-4 border-white sm:block">
               <Image
-                src="/images/soins-pediatriques.webp"
+                src={images.soinsPediatriques}
                 alt="Une infirmière aide un jeune enfant à prendre son aérosol dans sa chambre"
                 fill
                 sizes="25vw"

@@ -7,6 +7,7 @@ import { FilAriane } from "@/components/FilAriane";
 import { communes, getCommune } from "@/data/communes";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
+import { images } from "@/data/images";
 import { JsonLd, schemaFilAriane, schemaService } from "@/lib/schema";
 
 /**
@@ -62,7 +63,7 @@ export default async function PageCommune({
 
       <section className="relative isolate overflow-hidden bg-charbon text-white">
         <Image
-          src="/images/prises-de-sang.webp"
+          src={images.prisesDeSang}
           alt=""
           aria-hidden="true"
           fill

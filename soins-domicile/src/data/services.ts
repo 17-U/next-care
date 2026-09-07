@@ -1,3 +1,5 @@
+import { images } from "./images";
+
 export type Service = {
   slug: string;
   nom: string;
@@ -20,7 +22,7 @@ export const services: Service[] = [
   {
     slug: "soins-palliatifs",
     icone: "coeur",
-    image: "/images/soins-palliatifs.webp",
+    image: images.soinsPalliatifs,
     alt: "Une infirmière tient la main d'un patient âgé assis dans son salon",
     nom: "Soins palliatifs à domicile",
     nomCourt: "Soins palliatifs",
@@ -60,7 +62,7 @@ export const services: Service[] = [
   {
     slug: "aide-toilette-hygiene",
     icone: "goutte",
-    image: "/images/toilette-hygiene.webp",
+    image: images.toiletteHygiene,
     alt: "Une infirmière accompagne une patiente âgée installée dans son fauteuil",
     nom: "Aide à la toilette & hygiène",
     nomCourt: "Aide à la toilette",
@@ -94,7 +96,7 @@ export const services: Service[] = [
   {
     slug: "pansements-plaies",
     icone: "pansement",
-    image: "/images/pansements-plaies.webp",
+    image: images.pansementsPlaies,
     alt: "Une soignante sert un repas équilibré à une patiente à son domicile",
     nom: "Pansements à domicile",
     nomCourt: "Pansements à domicile",
@@ -122,7 +124,7 @@ export const services: Service[] = [
   {
     slug: "injections-perfusions",
     icone: "seringue",
-    image: "/images/injections-perfusions.webp",
+    image: images.injectionsPerfusions,
     alt: "Une infirmière pose une perfusion au bras d'un patient dans son salon",
     nom: "Injections & perfusions",
     nomCourt: "Injections & perfusions",
@@ -150,7 +152,7 @@ export const services: Service[] = [
   {
     slug: "prises-de-sang-soins-techniques",
     icone: "sang",
-    image: "/images/prises-de-sang.webp",
+    image: images.prisesDeSang,
     alt: "Une infirmière relève les paramètres vitaux d'une patiente et les note sur sa tablette",
     nom: "Prise de sang à domicile",
     nomCourt: "Prise de sang à domicile",
@@ -178,7 +180,7 @@ export const services: Service[] = [
   {
     slug: "diabete-maladies-chroniques",
     icone: "pouls",
-    image: "/images/maladies-chroniques.webp",
+    image: images.maladiesChroniques,
     alt: "Une infirmière mesure la tension artérielle d'une patiente âgée à domicile",
     nom: "Soins diabétiques & maladies chroniques",
     nomCourt: "Soins diabétiques",
