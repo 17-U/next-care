@@ -33,7 +33,7 @@ export default function Accueil() {
         </div>
 
         <div className="mx-auto w-full max-w-[1280px] px-5 md:px-8">
-          <div className="relative z-10 -mt-20 rounded-[6px] bg-white px-7 py-10 text-center shadow-[0_20px_50px_rgba(35,38,41,0.18)] md:-mt-24 md:px-16 md:py-14">
+          <div className="relative z-10 mt-6 rounded-[6px] bg-white px-7 py-10 text-center shadow-[0_20px_50px_rgba(35,38,41,0.18)] md:-mt-24 md:px-16 md:py-14">
             <p className="text-[14px] font-semibold uppercase tracking-[0.12em] text-vert">
               Soins infirmiers à domicile
             </p>
@@ -279,6 +279,50 @@ export default function Accueil() {
           <Bouton href="/blog" variante="contour">
             Toutes nos actualités
           </Bouton>
+        </div>
+      </Section>
+
+      {/* --------------------------------------------------------- CONTACT / CARTE */}
+      <Section fond="blanc">
+        <div className="mx-auto max-w-[760px] text-center">
+          <p className="text-[14px] font-semibold uppercase tracking-[0.12em] text-vert">
+            Nos coordonnées
+          </p>
+          <h2 className="mt-3 font-display text-[26px] tracking-[0.02em]">Contact</h2>
+          <div className="mx-auto mt-4 h-[3px] w-14 bg-vert" aria-hidden="true" />
+
+          <p className="mt-8 text-[16px] leading-relaxed text-encre-2">
+            {site.adresse.ville}, Belgique
+            <br />
+            <a href={`tel:${site.telephone}`} className="hover:text-vert hover:underline">
+              {site.telephoneAffiche}
+            </a>
+            {" — "}
+            {site.nom}
+            <br />
+            <a href={`mailto:${site.email}`} className="hover:text-vert hover:underline">
+              {site.email}
+            </a>
+            <br />
+            {site.horaires}
+          </p>
+
+          <p className="mx-auto mt-6 max-w-[520px] text-[15px] text-encre-3">
+            Nos infirmières se déplacent dans la ville de {site.adresse.ville} et ses environs
+            ({communes.map((c) => c.nom).join(", ")}).
+          </p>
+        </div>
+
+        <div className="mt-12 aspect-[16/7] w-full overflow-hidden rounded-[6px]">
+          <iframe
+            title={`Carte — zone d'intervention à ${site.adresse.ville}`}
+            src={`https://www.google.com/maps?q=${encodeURIComponent(
+              `${site.adresse.rue}, ${site.adresse.codePostal} ${site.adresse.ville}, Belgique`,
+            )}&output=embed`}
+            className="h-full w-full border-0"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
       </Section>
 
