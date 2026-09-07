@@ -152,6 +152,7 @@ export default function Accueil() {
                 fill
                 sizes="(max-width: 1024px) 100vw, 45vw"
                 className="object-cover"
+              quality={90}
               />
             </div>
             <div className="relative -mt-16 ml-auto hidden aspect-[4/3] w-1/2 overflow-hidden rounded-[16px] border-4 border-white sm:block">
@@ -161,6 +162,7 @@ export default function Accueil() {
                 fill
                 sizes="25vw"
                 className="object-cover"
+              quality={90}
               />
             </div>
           </div>

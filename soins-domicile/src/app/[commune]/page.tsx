@@ -69,6 +69,7 @@ export default async function PageCommune({
           fill
           sizes="100vw"
           className="-z-10 object-cover opacity-20"
+          quality={90}
         />
         <div className="mx-auto w-full max-w-[1136px] px-5 py-14 md:px-8 md:py-16">
           <p className="inline-block rounded-full bg-white/10 px-4 py-2 text-[14px]">

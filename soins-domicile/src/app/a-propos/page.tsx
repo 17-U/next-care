@@ -60,6 +60,7 @@ export default function PageAPropos() {
               priority
               sizes="(max-width: 1024px) 100vw, 45vw"
               className="object-cover"
+              quality={90}
             />
           </div>
         </div>
@@ -75,6 +76,7 @@ export default function PageAPropos() {
             fill
             sizes="100vw"
             className="object-cover"
+              quality={90}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-charbon/55 via-charbon/10 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 top-0 flex items-center">

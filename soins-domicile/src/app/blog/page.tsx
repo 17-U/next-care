@@ -47,6 +47,7 @@ export default function PageBlog() {
               priority
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
+              quality={90}
             />
           </div>
           <div className="p-7 md:p-10">
@@ -75,6 +76,7 @@ export default function PageBlog() {
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover"
+              quality={90}
                 />
               </div>
               <div className="flex flex-1 flex-col p-6">

@@ -65,6 +65,7 @@ export default async function PageArticle({ params }: { params: Promise<{ slug: 
                 priority
                 sizes="(max-width: 1024px) 100vw, 65vw"
                 className="object-cover"
+              quality={90}
               />
             </div>
 

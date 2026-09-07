@@ -7,6 +7,10 @@ const nextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
     ],
+    // Qualité par défaut relevée (75 → 90) : le rendu net compte plus ici
+    // que le poids, sur un site où la photo installe la confiance.
+    qualities: [75, 90],
+    formats: ["image/avif", "image/webp"],
   },
   async headers() {
     return [

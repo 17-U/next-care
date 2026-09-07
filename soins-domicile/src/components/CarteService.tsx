@@ -18,6 +18,7 @@ export function CarteService({ service, priorite = false }: { service: Service; 
           priority={priorite}
           sizes="128px"
           className="object-cover transition-transform duration-300 group-hover:scale-105"
+          quality={90}
         />
       </div>
       <h3 className="mt-5 font-display text-[19px] leading-snug">{service.nom}</h3>
