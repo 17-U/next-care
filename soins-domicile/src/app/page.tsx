@@ -20,20 +20,20 @@ export default function Accueil() {
           structurel que la maquette du client, avec une identité graphique
           propre (typographie, couleurs, hiérarchie) plutôt qu'une copie. */}
       <section className="relative">
-        <div className="relative h-[360px] w-full overflow-hidden md:h-[440px]">
+        <div className="relative h-[430px] w-full overflow-hidden md:h-[540px]">
           <Image
             src={images.heroAccueil}
             alt="Une infirmière échange avec un patient âgé à son domicile"
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[70%_center]"
+            className="object-cover object-center"
           />
           <div aria-hidden="true" className="absolute inset-0 bg-charbon/25" />
         </div>
 
         <div className="mx-auto w-full max-w-[1280px] px-5 md:px-8">
-          <div className="relative z-10 -mt-24 rounded-[6px] bg-white px-7 py-10 text-center shadow-[0_20px_50px_rgba(35,38,41,0.18)] md:-mt-28 md:px-16 md:py-14">
+          <div className="relative z-10 -mt-20 rounded-[6px] bg-white px-7 py-10 text-center shadow-[0_20px_50px_rgba(35,38,41,0.18)] md:-mt-24 md:px-16 md:py-14">
             <p className="text-[14px] font-semibold uppercase tracking-[0.12em] text-vert">
               Soins infirmiers à domicile
             </p>
