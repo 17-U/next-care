@@ -109,6 +109,14 @@ export default function PageAPropos() {
             des solutions adaptées à des besoins spécifiques, de manière respectueuse et
             chaleureuse.
           </p>
+          <p className="mt-6 text-[17px] text-encre-2">
+            Fraîchement diplômées en soins infirmiers, nous avons voulu approfondir nos
+            compétences en reprenant nos études. Aujourd&apos;hui, vous pouvez donc compter sur
+            les services de {site.nom}, votre infirmière à domicile à {site.adresse.ville}. Nous
+            nous adaptons à vos besoins spécifiques, que ce soit pour des soins médicaux, un
+            suivi régulier ou une assistance au quotidien. Vous recevez des soins de qualité
+            dans le confort de votre foyer.
+          </p>
         </div>
       </Section>
 
