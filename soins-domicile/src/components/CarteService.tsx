@@ -10,14 +10,14 @@ import type { Service } from "@/data/services";
 export function CarteService({ service, priorite = false }: { service: Service; priorite?: boolean }) {
   return (
     <Link href={`/services/${service.slug}`} className="group flex flex-col items-center text-center">
-      <div className="relative h-28 w-28 overflow-hidden rounded-full md:h-32 md:w-32">
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[10px] bg-brume">
         <Image
           src={service.image}
           alt={service.alt}
           fill
           priority={priorite}
-          sizes="128px"
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          className="object-contain transition-transform duration-300 group-hover:scale-105"
           quality={90}
         />
       </div>

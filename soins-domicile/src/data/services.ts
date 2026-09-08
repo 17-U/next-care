@@ -23,7 +23,7 @@ export const services: Service[] = [
     slug: "soins-palliatifs",
     icone: "coeur",
     image: images.soinsPalliatifs,
-    alt: "Une infirmière tient la main d'un patient âgé assis dans son salon",
+    alt: "Une infirmière ausculte une patiente alitée à son domicile",
     nom: "Soins palliatifs à domicile",
     nomCourt: "Soins palliatifs",
     resume:
@@ -125,7 +125,7 @@ export const services: Service[] = [
     slug: "injections-perfusions",
     icone: "seringue",
     image: images.injectionsPerfusions,
-    alt: "Une infirmière pose une perfusion au bras d'un patient dans son salon",
+    alt: "Une infirmière fait une injection dans le bras d'un patient",
     nom: "Injections & perfusions",
     nomCourt: "Injections & perfusions",
     resume:
@@ -153,7 +153,7 @@ export const services: Service[] = [
     slug: "prises-de-sang-soins-techniques",
     icone: "sang",
     image: images.prisesDeSang,
-    alt: "Une infirmière relève les paramètres vitaux d'une patiente et les note sur sa tablette",
+    alt: "Une infirmière prépare un prélèvement sanguin au bras d'un patient",
     nom: "Prise de sang à domicile",
     nomCourt: "Prise de sang à domicile",
     resume:
@@ -181,7 +181,7 @@ export const services: Service[] = [
     slug: "diabete-maladies-chroniques",
     icone: "pouls",
     image: images.maladiesChroniques,
-    alt: "Une infirmière mesure la tension artérielle d'une patiente âgée à domicile",
+    alt: "Un infirmier mesure la tension artérielle d'une patiente âgée à domicile",
     nom: "Soins diabétiques & maladies chroniques",
     nomCourt: "Soins diabétiques",
     resume:
