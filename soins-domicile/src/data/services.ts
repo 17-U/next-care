@@ -23,7 +23,7 @@ export const services: Service[] = [
     slug: "soins-palliatifs",
     icone: "coeur",
     image: images.soinsPalliatifs,
-    alt: "Une infirmière ausculte une patiente alitée à son domicile",
+    alt: "Une infirmière échange avec un patient âgé installé dans son salon",
     nom: "Soins palliatifs à domicile",
     nomCourt: "Soins palliatifs",
     resume:
@@ -97,7 +97,7 @@ export const services: Service[] = [
     slug: "pansements-plaies",
     icone: "pansement",
     image: images.pansementsPlaies,
-    alt: "Une soignante sert un repas équilibré à une patiente à son domicile",
+    alt: "Une infirmière refait un pansement à la main d'un patient âgé à son domicile",
     nom: "Pansements à domicile",
     nomCourt: "Pansements à domicile",
     resume:

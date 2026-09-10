@@ -1,6 +1,6 @@
 /** Paramètres du cabinet — point unique de vérité, remplacé par le CMS le moment venu. */
 export const site = {
-  nom: "NestCare",
+  nom: "Metie Soins",
   baseline: "Soins infirmiers à domicile",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://nestcare.be",
   telephone: process.env.NEXT_PUBLIC_PHONE ?? "0495490310",
